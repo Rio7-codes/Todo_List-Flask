@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>{% block title %} {% endblock title %} - MyTodo</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      .navbar {
+        padding-top: 1rem;  
+        padding-bottom: 0;
+        padding-left: 24px;
+        padding-right: 20px;
+      }
+      .form-container, .table-container {
+        margin: 2rem auto;
+        max-width: 800px;
+      }
+      table {
+        margin: 2rem auto;
+      }
+      th, td {
+        white-space: nowrap;
+        padding: 1rem 1.5rem;
+      }
+      .action-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+      .btn-outline-dark {
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+      }
+      .btn-outline-dark:hover {
+        background-color: black;
+        color: white;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">MyTodo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#aboutModal">About</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Todos
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/">All Todos</a>
+                        <a class="dropdown-item disabled" href="#">Completed (Coming Soon)</a>
+                        <a class="dropdown-item disabled" href="#">Pending (Coming Soon)</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#helpModal">Help</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" disabled>
+                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" disabled>Search</button>
+            </form>
+        </div>
+    </nav>
+    <hr>
+    {% block body %}
+        
+    {% endblock body %}
+    <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content text-left">
+        <div class="modal-header">
+            <h5 class="modal-title" id="aboutModalLabel">About This App</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            MyTodo is a simple Flask-based ToDo list app that lets users create, view, update, and delete tasks.
+            It uses SQLite for database storage and Bootstrap for styling.
+        </div>
+        </div>
+    </div>
+    </div>
+    <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content text-left">
+        <div class="modal-header">
+            <h5 class="modal-title" id="helpModalLabel">Help</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            • Use the form to add a todo.<br>
+            • Use the “Update” and “Delete” buttons to manage tasks.<br>
+            • View all todos under the table.<br>
+            • “Completed” and “Pending” filters are coming soon!
+        </div>
+        </div>
+    </div>
+    </div>
+  </body>
+</html>
